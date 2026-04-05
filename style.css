@@ -1,0 +1,135 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+:root{
+    --bgColorDark: rgba(0,0,0,0.8);
+    --transparentWhite: rgba(255,255,255,.4);
+    --pureWhite: rgb(255,255,255);
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgColorDark);
+}
+.container{
+    border: solid 2px var(--transparentWhite);
+    height: 600px;
+    width: 500px;
+    border-radius: 8px;
+    background-color: var(--transparentWhite);
+    position: relative;
+}
+.display{
+    height: 180px;
+    width: 97%;
+    border: solid 1px var(--transparentWhite);
+    background-color: aqua;
+    margin: 5px auto;
+    border-radius: 8px;
+    position: relative;
+    padding: 10px;
+}
+.userInput{
+    font-size: 1.5rem;
+    position: absolute;
+    right: 5%;
+    font-weight: 700;
+    border-right: solid .5px black;
+    line-height: 2;
+    padding-right: 1px;
+    animation: blinkCursor .5s alternate infinite;
+    max-width: 90%;
+    overflow: hidden;
+}
+@keyframes blinkCursor{
+    0%{
+        border-color: black;
+    }
+    100%{
+        border-color: transparent;
+    }
+}
+.answer{
+    position: absolute;
+    bottom: 2%;
+    right: 5%;
+}
+.keys{
+    height: 390px;width: 97%;
+    border: solid 1px var(--bgColorDark);
+    margin: 5px auto;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.numKeys{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+.keyStyle{
+    width: 62px;
+    height: 62px;
+    border: solid .5px var(--bgColorDark);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+.signKeys{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.nums{
+    background-color:var(--bgColorDark);
+    color: var(--pureWhite);
+    font-weight: 700;
+    cursor: pointer;
+}
+.nums:active{
+    transform: translateY(1px);
+    color: var(--transparentWhite);
+}
+.sign{
+    background-color:var(--transparentWhite);
+    color: var(--bgColorDark);
+    font-weight: 700;
+    cursor: pointer;
+}
+.sign:active{
+    transform: translateY(1px);
+}
+.equals{
+    background-color: orange;
+    color: white;
+}
+.brand{
+    color: gray;
+    bottom: 5%;
+    position: absolute;
+    font-family: cursive;
+    opacity: 30%;
+    cursor: default;
+}
+@media (max-width: 500px) {
+    .container{
+        border: none;
+    }
+    .display{
+        width: 100%;
+    }
+    .keys{
+        width: 100%;
+    }
+}
